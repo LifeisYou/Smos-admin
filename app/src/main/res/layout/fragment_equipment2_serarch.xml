@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_app"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"
+        app:titleTextAppearance="@style/Toolbar_TextAppearance_White">
+
+        <EditText
+            android:id="@+id/et_equipment2_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="48dp"
+            android:background="@null"
+            android:textSize="16sp"
+            android:textColor="@color/newSecondAryText"
+            android:hint="搜索"/>
+        <Button
+            android:id="@+id/btn_equipment2_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_search_delete"
+            android:textSize="16sp"
+            android:textColor="@color/newSecondAryText" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <include layout="@layout/blank_view" />
+</LinearLayout>

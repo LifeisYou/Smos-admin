@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_app">
+
+    <include layout="@layout/toolbar"/>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/bg_white">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/user_avatar"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="16dp"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+
+                <TextView
+                    android:id="@+id/user_username_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/user_avatar"
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:text="@string/setting_user_id"/>
+                <TextView
+                    android:id="@+id/user_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_toRightOf="@+id/user_username_text"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/user_name_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_username"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/user_avatar"
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:text="@string/setting_user_name"/>
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_username"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/user_name_text"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/login_or_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_username"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/user_avatar"
+                    android:text="@string/setting_login_or_register"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/user_phone_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_name"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/user_avatar"
+                    android:visibility="invisible"
+                    android:textSize="16sp"
+                    android:text="@string/setting_user_phone"/>
+                <TextView
+                    android:id="@+id/user_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/user_name"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/user_phone_text"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/bg_white">
+                <Button
+                    android:id="@+id/user_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_menu_user"
+                    android:drawablePadding="16dp"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="个人信息"
+                    android:textSize="16sp"
+                    android:clickable="false"/>
+            </RelativeLayout>
+            <!--android:background="@drawable/button_selector"-->
+            <include layout="@layout/black_small_view" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/bg_white">
+                <Button
+                    android:id="@+id/server_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_menu_server"
+                    android:drawablePadding="16dp"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:gravity="left|center_vertical"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:text="服务器信息"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!--<include layout="@layout/blank_view" />-->
+
+            <RelativeLayout
+                android:id="@+id/layout_subscribe_alarm"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/bg_white">
+
+                <Button
+                    android:id="@+id/subscribe_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_menu_alarm"
+                    android:drawablePadding="16dp"
+                    android:gravity="left|center_vertical"
+                    android:text="订阅报警"
+                    android:textSize="16sp" />
+
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/sb_alarm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+
+            <!--<include layout="@layout/black_small_view" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/bg_white"
+                android:visibility="gone">
+                <Button
+                    android:id="@+id/notice_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_menu_notice"
+                    android:drawablePadding="16dp"
+                    android:gravity="left|center_vertical"
+                    android:text="订阅通知"
+                    android:textSize="16sp" />
+                <com.suke.widget.SwitchButton
+                    android:id="@+id/sb_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:layout_centerVertical="true"
+                    android:clickable="false"/>
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/bg_white">
+                <Button
+                    android:id="@+id/soft_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:background="@null"
+                    android:drawableLeft="@drawable/ic_menu_soft"
+                    android:drawablePadding="16dp"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:gravity="left|center_vertical"
+                    android:text="软件信息"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/black_small_view" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/bg_white">
+                <Button
+                    android:id="@+id/about_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:background="@color/bg_white"
+                    android:drawableLeft="@drawable/ic_menu_about"
+                    android:drawablePadding="16dp"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:gravity="left|center_vertical"
+                    android:text="关于我们"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+            <RelativeLayout
+                android:id="@+id/rl_exit"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:background="@color/bg_white"
+                android:visibility="gone">
+                <Button
+                    android:id="@+id/exit_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="@color/bg_white"
+                    android:gravity="center"
+                    android:text="退出当前账号"
+                    android:textColor="@color/btn_bg_red"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+            <include layout="@layout/blank_view" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
+

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_app">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"
+        app:titleTextAppearance="@style/Toolbar_TextAppearance_White">
+
+        <Button
+            android:id="@+id/btn_alarm_task_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@null"
+            android:textSize="16sp"
+            android:textColor="@color/newSecondAryText"
+            android:text="提交"/>
+    </android.support.v7.widget.Toolbar>
+    <!--<include layout="@layout/toolbar"/>-->
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/blank_view" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/bg_white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="* 故障设备"/>
+                <TextView
+                    android:id="@+id/tv_publish_task_equipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:drawablePadding="8dp"
+                    android:hint="请选择"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/bg_white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="* 维修人员"/>
+                <TextView
+                    android:id="@+id/tv_publish_task_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:drawablePadding="8dp"
+                    android:hint="请选择"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/bg_white" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="* 任务类型"/>
+                <TextView
+                    android:id="@+id/tv_publish_task_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:drawablePadding="8dp"
+                    android:hint="请选择"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/bg_white" >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="* 截止时间"/>
+                <TextView
+                    android:id="@+id/tv_publish_task_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:drawableRight="@drawable/ic_menu_go"
+                    android:drawablePadding="8dp"
+                    android:hint="请选择"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_white" >
+                <TextView
+                    android:id="@+id/tv_publish_task_message_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="* 任务详情及要求"/>
+
+                <EditText
+                    android:id="@+id/et_publish_task_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="150dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:layout_below="@id/tv_task_msg_receive_text"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp"
+                    android:hint="请填写具体信息"
+                    android:textColorHint="@color/newSecondAryText"/>
+            </RelativeLayout>
+            <include layout="@layout/blank_view" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

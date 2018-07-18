@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/stepView_day_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="16dp"
+        android:textSize="14sp"
+        android:text="04-13"/>
+    <TextView
+        android:id="@+id/stepView_time_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/stepView_day_tv"
+        android:textSize="12sp"
+        android:text="15:00"/>
+
+    <ImageView
+        android:id="@+id/stepView_circle_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/stepView_day_tv"
+        android:background="@drawable/ic_step_circle"
+        android:layout_marginLeft="10dp"/>
+
+
+
+    <TextView
+        android:id="@+id/stepView_type_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@+id/stepView_circle_iv"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:text="已完成"/>
+
+    <TextView
+        android:id="@+id/stepView_message_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@+id/stepView_type_tv"
+        android:layout_toRightOf="@+id/stepView_circle_iv"
+        android:textSize="14sp"
+        android:text="运维人员user-1234已完成任务，现场已恢复正常运行。"/>
+
+    <!--<ImageView-->
+        <!--android:id="@+id/stepView_image1_tv"-->
+        <!--android:layout_width="56dp"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:layout_below="@id/stepView_message_tv"-->
+        <!--android:layout_marginLeft="18dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:background="@drawable/ic_me"-->
+        <!--android:layout_toRightOf="@+id/stepView_circle_iv"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/stepView_image2_tv"-->
+        <!--android:layout_width="56dp"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:layout_below="@id/stepView_message_tv"-->
+        <!--android:layout_marginLeft="18dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:background="@drawable/ic_me"-->
+        <!--android:layout_toRightOf="@+id/stepView_image1_tv"/>-->
+
+    <!--<ImageView-->
+        <!--android:id="@+id/stepView_image3_tv"-->
+        <!--android:layout_width="56dp"-->
+        <!--android:layout_height="56dp"-->
+        <!--android:layout_below="@id/stepView_message_tv"-->
+        <!--android:layout_marginLeft="18dp"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:background="@drawable/ic_me"-->
+        <!--android:layout_toRightOf="@+id/stepView_image2_tv"/>-->
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_below="@+id/stepView_message_tv" />
+
+    <View
+        android:id="@+id/stepView_line_v"
+        android:layout_width="1dp"
+        android:layout_height="80dp"
+        android:layout_toRightOf="@+id/stepView_day_tv"
+        android:layout_below="@+id/stepView_circle_iv"
+        android:layout_marginLeft="22dp"
+        android:background="@color/step_view_line"/>
+
+</RelativeLayout>

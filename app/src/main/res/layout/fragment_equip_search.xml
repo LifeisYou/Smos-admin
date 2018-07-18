@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_app">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"
+        app:titleTextAppearance="@style/Toolbar_TextAppearance_White">
+
+        <EditText
+            android:id="@+id/et_equip_search"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginRight="56dp"
+            android:background="@null"
+            android:maxLines="1"/>
+        <Button
+            android:id="@+id/btn_equip_search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginRight="16dp"
+            android:layout_gravity="right"
+            android:background="@drawable/ic_equip_clean"
+            android:textSize="16sp"
+            android:textColor="@color/newSecondAryText" />
+    </android.support.v7.widget.Toolbar>
+
+    <include layout="@layout/blank_view" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_equip_search_result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

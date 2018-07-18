@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_app">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/AppTheme.NoActionBar.PopupOverlay"
+        app:titleTextAppearance="@style/Toolbar_TextAppearance_White">
+
+        <Button
+            android:id="@+id/btn_summary_task"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@null"
+            android:textSize="16sp"
+            android:textColor="@color/newSecondAryText"
+            android:text="提交"/>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="任务信息"/>
+                <TextView
+                    android:id="@+id/tv_task_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:minHeight="48dp"
+                    android:layout_marginLeft="100dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical|right"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/bg_white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="故障设备"/>
+                <TextView
+                    android:id="@+id/tv_task_equipment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/bg_white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="发布人员"/>
+                <TextView
+                    android:id="@+id/tv_task_publisher"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/bg_white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="任务截止时间"/>
+                <TextView
+                    android:id="@+id/tv_task_time_deadline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_white">
+                <TextView
+                    android:id="@+id/tv_task_pictures_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="现场图片信息"/>
+
+                <ImageButton
+                    android:id="@+id/btn_task_pictures_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="16dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_task_picture_add"/>
+
+                <com.xczn.smos.ui.view.MyGridView
+                    android:id="@+id/gv_task_pictures"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tv_task_pictures_text"
+                    android:numColumns="auto_fit"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginBottom="10dp"
+                    android:columnWidth="90dp"
+                    android:verticalSpacing="10dp"
+                    android:horizontalSpacing="10dp"
+                    android:cacheColorHint="#00000000" />
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/bg_white">
+                <TextView
+                    android:id="@+id/tv_task_msg_receive_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:layout_marginLeft="16dp"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/newPrimaryText"
+                    android:textSize="16sp"
+                    android:text="任务完成信息"/>
+
+                <EditText
+                    android:id="@+id/et_task_msg_receive"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="100dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginLeft="16dp"
+                    android:background="@null"
+                    android:layout_below="@id/tv_task_msg_receive_text"
+                    android:textColor="@color/newSecondAryText"
+                    android:textSize="16sp"
+                    android:hint="填写具体信息"
+                    android:textColorHint="@color/newSecondAryText"/>
+            </RelativeLayout>
+
+            <include layout="@layout/blank_view" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

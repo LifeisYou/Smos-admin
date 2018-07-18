@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_white">
+
+    <include layout="@layout/toolbar"/>
+
+    <EditText
+        android:id="@+id/et_register_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="16dp"
+        android:drawableLeft="@drawable/ic_login_user"
+        android:drawablePadding="16dp"
+        android:background="@drawable/shape_solid_white_login"
+        android:maxLines="1"
+        android:hint="@string/register_user_id"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_register_name"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="16dp"
+        android:drawableLeft="@drawable/ic_login_user"
+        android:drawablePadding="16dp"
+        android:background="@drawable/shape_solid_white_login"
+        android:maxLines="1"
+        android:hint="@string/register_name"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_register_password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="16dp"
+        android:drawableLeft="@drawable/ic_login_pwd"
+        android:drawablePadding="16dp"
+        android:background="@drawable/shape_solid_white_login"
+        android:maxLines="1"
+        android:hint="@string/register_password"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/et_register_re_password"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="16dp"
+        android:drawableLeft="@drawable/ic_login_pwd"
+        android:drawablePadding="16dp"
+        android:background="@drawable/shape_solid_white_login"
+        android:maxLines="1"
+        android:hint="@string/register_re_password"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/et_register_code"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="16dp"
+        android:drawableLeft="@drawable/ic_register_code"
+        android:drawablePadding="16dp"
+        android:background="@drawable/shape_solid_white_login"
+        android:maxLines="1"
+        android:hint="@string/register_code"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:paddingLeft="16dp"
+        android:background="@drawable/shape_solid_primary_login"
+        android:textSize="18sp"
+        android:text="@string/register"/>
+
+</LinearLayout>

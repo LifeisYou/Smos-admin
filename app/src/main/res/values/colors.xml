@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bg_app">#F1F1F1</color>
+    <color name="bg_image">#000000</color>
+    <color name="icon_color">#000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="no_transparent">#80000000</color>
+
+    <color name="tab_unselect">#c9c9c9</color>
+    <color name="bg_btn">#dadada</color>
+    <color name="bg_black">#F1f1f1</color>
+
+    <color name="text_lgray">#808080</color>
+    <color name="text_gray">#323232</color>
+
+    <color name="bg_white">#FFFFFF</color>
+
+    <color name="newColorPrimary">#00BCD4</color>
+    <color name="newColorPrimaryDark">#0097A7</color>
+    <color name="newColorAccent">#00BCD4</color>
+    <color name="newTextIcons">#FFFFFF</color>
+    <color name="newDivider">#BDBDBD</color>
+    <color name="newPrimaryText">#212121</color>
+    <color name="newSecondAryText">#757575</color>
+    <color name="newColorTime">#2196F3</color>
+
+    <color name="step_view_line">#1296DB</color>
+
+    <color name="btn_bg_green">#4CAF50</color>
+    <color name="btn_bg_red">#F44336</color>
+    <color name="un_accept_color">#FFA000</color>
+
+</resources>
