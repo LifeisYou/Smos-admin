@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.xczn.smos.R;
 import com.xczn.smos.base.BaseMainFragment;
-import com.xczn.smos.entity.User;
 import com.xczn.smos.entity.UserList;
 import com.xczn.smos.event.AlarmPostEvent;
 import com.xczn.smos.event.LoginEvent;
@@ -28,9 +27,7 @@ import com.xczn.smos.utils.SharedPreferencesUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import me.yokeyword.eventbusactivityscope.EventBusActivityScope;
@@ -43,7 +40,6 @@ import me.yokeyword.fragmentation.SupportFragment;
  */
 
 public class MainFragment extends BaseMainFragment {
-    private static final int REQ_MSG = 10;
 
     public static final int FIRST = 0;
     public static final int SECOND = 1;
@@ -53,14 +49,8 @@ public class MainFragment extends BaseMainFragment {
 
     private BottomBar mBottomBar;
 
-
     public static MainFragment newInstance() {
-
-        Bundle args = new Bundle();
-
-        MainFragment fragment = new MainFragment();
-        fragment.setArguments(args);
-        return fragment;
+        return new MainFragment();
     }
 
     @Nullable
@@ -109,7 +99,7 @@ public class MainFragment extends BaseMainFragment {
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Consumer<UserList>() {
                                    @Override
-                                   public void accept(UserList user) throws Exception {
+                                   public void accept(UserList user) {
                                        if (user == null || "".equals(user.getType())) {
                                            //**** failed
                                            EventBusActivityScope.getDefault(_mActivity).post(new LoginEvent(null));
@@ -125,7 +115,7 @@ public class MainFragment extends BaseMainFragment {
                                }
                             , new Consumer<Throwable>() {
                                 @Override
-                                public void accept(Throwable throwable) throws Exception {
+                                public void accept(Throwable throwable) {
                                     EventBusActivityScope.getDefault(_mActivity).post(new LoginEvent(null));
                                     Toast.makeText(_mActivity, "请用户先登录！", Toast.LENGTH_SHORT).show();
                                 }

@@ -13,6 +13,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
 
 import com.google.gson.Gson;
+import com.hss01248.notifyutil.NotifyUtil;
 import com.tapadoo.alerter.Alerter;
 import com.xczn.smos.MainActivity;
 import com.xczn.smos.R;
@@ -29,6 +30,9 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 import io.objectbox.Box;
 
+import static android.R.attr.type;
+import static android.app.Notification.VISIBILITY_PUBLIC;
+
 /**
  * @Author zhangxiao
  * @Date 2018/4/28 0028
@@ -39,7 +43,6 @@ public class AlarmMqttCallback implements MqttCallback {
 
     private final FragmentActivity activity;
     private static int MessageID = 0;
-    private NotificationManager notificationManager = null;
 
     public AlarmMqttCallback(FragmentActivity activity) {
         this.activity = activity;
@@ -58,11 +61,10 @@ public class AlarmMqttCallback implements MqttCallback {
      */
     @Override
     public void messageArrived(String topic, MqttMessage message) throws Exception {
-        System.out.println("message has arrived");
         Box<Alarm> alarmBox = BoxStoreUtils.getInstance().getBoxStore().boxFor(Alarm.class);
         String str1 = new String(message.getPayload());
         AlarmReceive alarmReceive = new Gson().fromJson(str1, AlarmReceive.class);
-        System.out.println(alarmReceive.getMessage());
+
         Alarm alarm = new Alarm();
         alarm.alarmId = alarmReceive.getAlarm_id();
         alarm.equipment = alarmReceive.getEquipment();
@@ -71,11 +73,10 @@ public class AlarmMqttCallback implements MqttCallback {
         alarm.level = alarmReceive.getLevel();
         alarm.status = "undo";
         alarm.username = SharedPreferencesUtils.getInstance().getLoginUsername();
+
         if (alarmBox.find(Alarm_.alarmId, alarm.alarmId).size() == 0) {
-            System.out.println(alarm.getAlarmId());
             alarmBox.put(alarm);
             sendNotification(alarm);
-            //EventBusActivityScope.getDefault(activity).post( new AlarmPostEvent(1));
         }
     }
 
@@ -98,15 +99,24 @@ public class AlarmMqttCallback implements MqttCallback {
 //                .setWhen(System.currentTimeMillis())
 //                .setAutoCancel(true);
 
-//        Intent intent = new Intent(activity, MainActivity.class);
-//        PendingIntent pendingIntent = PendingIntent.getActivity(activity, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//        mBuilder.setContentIntent(pendingIntent);
-//        manager.notify(1, mBuilder.build());
-        if (notificationManager == null) {
-            notificationManager = (NotificationManager) activity.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
-        }
         Intent intent = new Intent(activity, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(activity, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        mBuilder.setContentIntent(pendingIntent);
+//        manager.notify(1, mBuilder.build());
+
+//        Intent intent = new Intent(activity, MainActivity.class);
+//        PendingIntent pendingIntent = PendingIntent.getActivity(activity, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        /**
+         * 注释
+
+        NotificationManager notificationManager = (NotificationManager) activity.getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+
+        Intent intentClick = new Intent(activity, NotificationBroadcastReceiver.class);
+        intentClick.setAction("notification_clicked");
+        intentClick.putExtra(NotificationBroadcastReceiver.TYPE, type);
+        PendingIntent pendingIntentClick = PendingIntent.getBroadcast(activity, 1, intentClick, PendingIntent.FLAG_ONE_SHOT);
+
         final Bitmap largeIcon = ((BitmapDrawable) activity.getResources().getDrawable(R.drawable.soft_image)).getBitmap();
 
         Notification notification = null;
@@ -133,10 +143,8 @@ public class AlarmMqttCallback implements MqttCallback {
                     .setContentText(alarm.message)
                     .setOngoing(false)
                     .setWhen(System.currentTimeMillis())
-                    .setAutoCancel(true);
-
-                    //.setChannel(id);//无效
-            //notificationBuilder.setContentIntent(pendingIntent);
+                    .setAutoCancel(true)
+                    .setContentIntent(pendingIntentClick);
             notification = notificationBuilder.build();
         }
         notificationManager.notify(MessageID, notification);
@@ -149,5 +157,16 @@ public class AlarmMqttCallback implements MqttCallback {
                 .setBackgroundColorRes(R.color.newColorAccent)
                 .enableSwipeToDismiss()
                 .show();
+         */
+
+        NotifyUtil.buildBigText(MessageID, R.drawable.ic_menu_list_alarm, alarm.equipment, alarm.message)
+                .setHeadup()
+                .setBigIcon(R.drawable.soft_image)
+                .setSmallIcon(R.drawable.ic_menu_list_alarm)
+                .setContentIntent(pendingIntent)
+                //.setForgroundService()
+                .setLockScreenVisiablity(VISIBILITY_PUBLIC)
+                .show();
+        MessageID++;
     }
 }

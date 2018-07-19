@@ -26,7 +26,6 @@ import com.xczn.smos.request.AccountService;
 import com.xczn.smos.ui.fragment.account.RegisterFragment;
 import com.xczn.smos.utils.HttpMethods;
 import com.xczn.smos.utils.SharedPreferencesUtils;
-import com.xczn.smos.utils.ToastUtils;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -128,21 +127,11 @@ public class ExitFragment extends BaseBackFragment {
                                @Override
                                public void accept(UserList userList) {
                                    loginDialog.dismiss();
-                                   if (userList.getUserId().equals("")) {
+                                   if (userList == null || userList.getUserId().equals("")) {
                                        //**** failed
                                        Toast.makeText(_mActivity, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
-                                   } else if ("admin".equals(userList.getType())){
-                                       if (!SharedPreferencesUtils.getInstance().setLoginUsername(usernameStr)
-                                               && !SharedPreferencesUtils.getInstance().setLoginPassword(passwordStr)){
-                                          // ToastUtils.showShortToast(_mActivity, "初始化错误，请稍后重新登录");
-                                       }
-                                       mUser = userList;
-                                       _mActivity.onBackPressed();
-                                   } else if ("user".equals(userList.getType())){
-                                       if (!SharedPreferencesUtils.getInstance().setLoginUsername(usernameStr)
-                                               && !SharedPreferencesUtils.getInstance().setLoginPassword(passwordStr)){
-                                          // ToastUtils.showShortToast(_mActivity, "初始化错误，请稍后重新登录");
-                                       }
+                                   } else {
+                                       SharedPreferencesUtils.getInstance().setLoginInfo(usernameStr, passwordStr);
                                        mUser = userList;
                                        _mActivity.onBackPressed();
                                    }

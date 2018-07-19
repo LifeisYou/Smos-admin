@@ -80,7 +80,7 @@ public class MeasureFragment extends BaseBackFragment{
 
     private void initData() {
         tvEquipmentName.setText("名称："+mEquipmentsBean.getEquipment_name());
-        tvEquipmentDes.setText("描述："+mEquipmentsBean.getEquipment_type());
+        tvEquipmentDes.setText("编号："+mEquipmentsBean.getEquipment_id());
         tvEquipmentInterval.setText("间隔："+mEquipmentsBean.getInterval_name());
         tvEquipmentFactory.setText("厂站："+mEquipmentsBean.getFactory_name());
         if (mEquipmentsBean.getCommunication_status() == 1){

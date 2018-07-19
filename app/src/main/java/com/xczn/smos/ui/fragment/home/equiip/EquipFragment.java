@@ -83,7 +83,7 @@ public class EquipFragment extends BaseBackFragment {
 //        mapView.setMap(map);
 //        Point centerPoint = new Point(113.868,34.090,SpatialReference.create(4326));
 //        mapView.setViewpointCenterAsync(centerPoint, 200000);
-        ArcGISMap map = new ArcGISMap(Basemap.Type.TOPOGRAPHIC, 34.090, 113.868, 10);
+        ArcGISMap map = new ArcGISMap(Basemap.Type.OPEN_STREET_MAP, 34.090, 113.868, 10);
         mapView.setMap(map);
 
         mapView.setOnTouchListener(new DefaultMapViewOnTouchListener(_mActivity ,mapView) {
@@ -92,7 +92,7 @@ public class EquipFragment extends BaseBackFragment {
                 Equipment1 equipment1 = ArcgisUtils.getEquipment(mapView, e ,equipment1List);
                 if (equipment1 != null){
                     Point point = ArcgisUtils.getPoint(equipment1);
-                    mapView.setViewpointCenterAsync(point,14);
+                    mapView.setViewpointCenterAsync(point,50000);
                     showEquipmentDialog(equipment1);
                     return true;
                 } else {
@@ -188,7 +188,7 @@ public class EquipFragment extends BaseBackFragment {
             ToastUtils.showShortToast(_mActivity, equip.getEquipname()+"-"+equip.getEquipid()+"没有坐标信息！");
         } else {
             Point point = ArcgisUtils.getPoint(equip);
-            mapView.setViewpointCenterAsync(point, 14);
+            mapView.setViewpointCenterAsync(point, 50000);
 
 //            if (locationGraphics != null) {
 //                mapView.getGraphicsOverlays().remove(locationGraphics);

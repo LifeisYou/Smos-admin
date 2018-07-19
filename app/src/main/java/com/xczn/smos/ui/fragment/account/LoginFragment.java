@@ -2,8 +2,6 @@ package com.xczn.smos.ui.fragment.account;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
@@ -26,13 +24,9 @@ import com.xczn.smos.base.BaseBackFragment;
 import com.xczn.smos.entity.UserList;
 import com.xczn.smos.event.LoginEvent;
 import com.xczn.smos.request.AccountService;
-import com.xczn.smos.ui.fragment.MainFragment;
-import com.xczn.smos.ui.view.ProgressDialog;
 import com.xczn.smos.utils.HttpMethods;
 import com.xczn.smos.utils.SharedPreferencesUtils;
 import com.xczn.smos.utils.ToastUtils;
-
-import java.util.Timer;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
@@ -55,9 +49,6 @@ public class LoginFragment extends BaseBackFragment {
     private EditText passwordEt;
     private ImageView ivPw;
     private TDialog loginDialog;
-
-    Timer timer = new Timer();
-    ProgressDialog progressDialog = ProgressDialog.create();
 
     public static LoginFragment newInstance() {
         return new LoginFragment();
@@ -92,8 +83,7 @@ public class LoginFragment extends BaseBackFragment {
                 if ("".equals(usernameEt.getText().toString()) || "".equals(passwordEt.getText().toString())){
                     ToastUtils.showShortToast(_mActivity, "用户名或密码不能为空！");
                 } else {
-                    //关闭软键盘
-                    hideSoftInput();
+                    hideSoftInput();    //关闭软键盘
                     loginDialog();
                     loginServer();
                 }
@@ -139,22 +129,12 @@ public class LoginFragment extends BaseBackFragment {
                                @Override
                                public void accept(UserList userList) {
                                    loginDialog.dismiss();
-                                   if (userList.getUserId().equals("")) {
+                                   if (userList == null ||userList.getUserId().equals("")) {
                                        //**** failed
                                        Toast.makeText(_mActivity, "用户名或密码错误！", Toast.LENGTH_SHORT).show();
-                                   } else if ("admin".equals(userList.getType())){
-                                       if (SharedPreferencesUtils.getInstance().setLoginUsername(usernameStr)
-                                               && SharedPreferencesUtils.getInstance().setLoginPassword(passwordStr)){
-                                           //ToastUtils.showShortToast(_mActivity, "初始化错误，请稍后重新登录");
-                                       }
+                                   } else {
+                                       SharedPreferencesUtils.getInstance().setLoginInfo(usernameStr, passwordStr);
                                        EventBusActivityScope.getDefault(_mActivity).post( new LoginEvent(userList));
-                                       _mActivity.onBackPressed();
-                                   } else if ("user".equals(userList.getType())){
-                                       if (!SharedPreferencesUtils.getInstance().setLoginUsername(usernameStr)
-                                               && !SharedPreferencesUtils.getInstance().setLoginPassword(passwordStr)){
-                                           //ToastUtils.showShortToast(_mActivity, "初始化错误，请稍后重新登录");
-                                       }
-                                       EventBusActivityScope.getDefault(_mActivity).post(new LoginEvent(userList));
                                        _mActivity.onBackPressed();
                                    }
                                }
@@ -167,22 +147,6 @@ public class LoginFragment extends BaseBackFragment {
                             }
                         });
     }
-
-    @SuppressLint("HandlerLeak")
-    final Handler handler = new Handler(){
-        @Override
-        public void handleMessage(Message msg){
-            switch (msg.what) {
-                case 1:
-                    progressDialog.dismiss();
-                    start(MainFragment.newInstance());
-                    timer.cancel();
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
 
     @Override
     public void onDestroyView() {

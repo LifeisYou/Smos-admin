@@ -57,6 +57,8 @@
     <string name="about_email">电子邮箱：znsc@xjpmf.com</string>
     <string name="about_address">公司地址：河南省许昌市中原电气谷许昌智能科技大厦</string>
 
+    <string name="equip_search_history_des">des_equip_search_history</string>
+
     <string name="ic_access_alarms">&#xe000;</string>
     <string name="ic_access_time">&#xe001;</string>
     <string name="ic_accessibility">&#xe002;</string>

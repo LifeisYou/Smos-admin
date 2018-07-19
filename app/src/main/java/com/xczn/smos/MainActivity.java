@@ -1,8 +1,10 @@
 package com.xczn.smos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import com.hss01248.notifyutil.NotifyUtil;
 import com.xczn.smos.ui.fragment.MainFragment;
 import com.xczn.smos.utils.BoxStoreUtils;
 import com.xczn.smos.utils.SharedPreferencesUtils;
@@ -19,8 +21,9 @@ public class MainActivity extends SupportActivity {
         setContentView(R.layout.activity_main);
 
         //传入context，进行初始化
-        SharedPreferencesUtils.getInstance().setContext(this);
+        SharedPreferencesUtils.init(this);
         BoxStoreUtils.getInstance().setContext(this);
+        NotifyUtil.init(getApplicationContext());
 
         if (findFragment(MainFragment.class) == null) {
             loadRootFragment(R.id.fl_container, MainFragment.newInstance());
@@ -37,5 +40,10 @@ public class MainActivity extends SupportActivity {
     public FragmentAnimator onCreateFragmentAnimator() {
         // 设置横向(和安卓4.x动画相同)
         return new DefaultHorizontalAnimator();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

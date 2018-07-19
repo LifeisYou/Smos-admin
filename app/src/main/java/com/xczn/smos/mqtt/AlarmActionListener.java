@@ -4,8 +4,10 @@ import android.content.Context;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
+import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 /**
  * @Author zhangxiao
@@ -25,6 +27,7 @@ public class AlarmActionListener implements IMqttActionListener{
 
     @Override
     public void onSuccess(IMqttToken asyncActionToken) {
+        subscribeToTopic();
         try {
             client.subscribe("Alarm", 2);
         } catch (MqttException e) {
@@ -35,5 +38,25 @@ public class AlarmActionListener implements IMqttActionListener{
     @Override
     public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
         exception.printStackTrace();
+    }
+
+    public void subscribeToTopic(){
+        try {
+            client.subscribe(client.getClientId(), 2, null, new IMqttActionListener() {
+                @Override
+                public void onSuccess(IMqttToken asyncActionToken) {
+//                    addToHistory("Subscribed!");
+                }
+
+                @Override
+                public void onFailure(IMqttToken asyncActionToken, Throwable exception) {
+//                    addToHistory("Failed to subscribe");
+                }
+            });
+
+        } catch (MqttException ex){
+            System.err.println("Exception whilst subscribing");
+            ex.printStackTrace();
+        }
     }
 }

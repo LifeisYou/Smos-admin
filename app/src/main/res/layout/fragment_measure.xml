@@ -87,7 +87,8 @@
                     android:layout_below="@id/equipment2_interval"
                     android:layout_marginTop="8dp"
                     android:layout_toRightOf="@id/equipment2_image"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    android:visibility="gone"/>
 
                 <ImageView
                     android:id="@+id/equipment2_status_image"
@@ -98,7 +99,8 @@
                     android:layout_marginLeft="32dp"
                     android:layout_marginTop="12dp"
                     android:layout_toRightOf="@id/equipment2_status"
-                    android:src="@drawable/ic_step_circle" />
+                    android:src="@drawable/ic_step_circle"
+                    android:visibility="gone"/>
             </RelativeLayout>
 
             <RelativeLayout

@@ -10,9 +10,8 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
-    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- <uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
 
     <uses-feature android:glEsVersion="0x00020000" android:required="true" />
 
@@ -25,6 +24,7 @@
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleInstance"
@@ -37,12 +37,23 @@
             </intent-filter>
         </activity>
 
-        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <service
+            android:name="org.eclipse.paho.android.service.MqttService" />
 
-        <activity android:name=".TaskActivity" />
+        <activity
+            android:name=".TaskActivity" />
+
         <activity
             android:name=".SvgActivity"
             android:screenOrientation="sensorLandscape"/>
+
+        <receiver android:name=".mqtt.NotificationBroadcastReceiver">
+            <intent-filter>
+                <action android:name="notification_cancelled"/>
+                <action android:name="notification_clicked"/>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>
